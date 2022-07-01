@@ -53,6 +53,30 @@ const enterprises = [{
 //   Задания:
 //   1. Вывести все предприятия и их отделы. Рядом указать количество сотрудников. Для предприятия посчитать сумму всех сотрудников во всех отделах.
 
+function getEnterpriseName(factories) {
+    factories.forEach(factory => {
+        let sections = [];
+        let count = 0;
+        sections.push(factory.name);
+        if (factory.departments) {
+            factory.departments.forEach((section) => {
+                count = count + Number(section.employees_count);
+                if (section.employees_count) {
+                    sections.push(`- ${section.name} (${section.employees_count} сотрудников)`);
+                } else sections.push(`- ${section.name} (нет сотрудников)`);
+            });
+            if (count) {
+                sections[0] = sections[0] + `(${count} сотрудников)`;
+            } else {
+                sections[0] = sections[0] + ` нет сотрудников`
+            };
+        }
+        console.log(sections.join(`\n\ `));
+    });
+}
+
+getEnterpriseName(enterprises);
+
 //   **Пример:**
 
 //   Предприятие 1 (45 сотрудников)
