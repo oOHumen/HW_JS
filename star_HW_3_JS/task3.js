@@ -53,6 +53,7 @@ const enterprises = [{
 //   Задания:
 //   1. Вывести все предприятия и их отделы. Рядом указать количество сотрудников. Для предприятия посчитать сумму всех сотрудников во всех отделах.
 
+/*
 function getEnterpriseName(factories) {
     factories.forEach(factory => {
         let sections = [];
@@ -76,6 +77,7 @@ function getEnterpriseName(factories) {
 }
 
 getEnterpriseName(enterprises);
+*/
 
 //   **Пример:**
 
@@ -91,6 +93,23 @@ getEnterpriseName(enterprises);
 //   - Отдел аналитики (нет сотрудников)
 
 //   2. Написать функцию, которая будет принимать 1 аргумент (id отдела или название отдела и возвращать название предприятия, к которому относится).
+
+function getEnterpriseName(depId) {
+    enterprises.forEach((el) => {
+        el.departments.forEach((element) => {
+            if (element.id === depId || element.name === depId) {
+                console.log(el.name);
+            }
+        })
+        if (el.id === depId || el.name === depId) {
+            console.log(el.name);
+        }
+    });
+}
+
+
+getEnterpriseName(8);
+
 
 //   Пример:
 //   getEnterpriseName(4) // Предприятие 1
