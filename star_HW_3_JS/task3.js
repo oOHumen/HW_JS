@@ -94,6 +94,7 @@ getEnterpriseName(enterprises);
 
 //   2. Написать функцию, которая будет принимать 1 аргумент (id отдела или название отдела и возвращать название предприятия, к которому относится).
 
+/*
 function getEnterpriseName(depId) {
     enterprises.forEach((el) => {
         el.departments.forEach((element) => {
@@ -109,13 +110,43 @@ function getEnterpriseName(depId) {
 
 
 getEnterpriseName(8);
-
+*/
 
 //   Пример:
 //   getEnterpriseName(4) // Предприятие 1
 //   getEnterpriseName("Отдел маркетинга") // Предприятие 2
 
 //   3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
+
+//Help function that ged ID to the new object.
+const getMaxID = (enterprise) => {
+    let maxId = 0;
+    enterprise.forEach((enterid) => {
+        if (maxId < enterid.id) {
+            maxId = enterid.id;
+        }
+        enterid.departments.forEach((depId) => {
+            if (maxId < depId.id) {
+                maxId = depId.id;
+            }
+        })
+    })
+    return maxId + 1;
+}
+// console.log(getMaxID(enterprises));
+
+function addEnterprise(enterprise) {
+    const obj = new Object;
+    obj.id = getMaxID(enterprises);
+    obj.name = enterprise;
+    obj.departments = [];
+    enterprises.push(obj);
+
+}
+
+addEnterprise("Предприятие 4");
+console.log(enterprises);
+
 
 //   Пример:
 //   addEnterprise("Название нового предприятия")
