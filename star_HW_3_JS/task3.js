@@ -119,6 +119,7 @@ getEnterpriseName(8);
 //   3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
 
 //Help function that ged ID to the new object.
+
 const getMaxID = (enterprise) => {
     let maxId = 0;
     enterprise.forEach((enterid) => {
@@ -133,25 +134,43 @@ const getMaxID = (enterprise) => {
     })
     return maxId + 1;
 }
-// console.log(getMaxID(enterprises));
 
-function addEnterprise(enterprise) {
-    const obj = new Object;
-    obj.id = getMaxID(enterprises);
-    obj.name = enterprise;
-    obj.departments = [];
-    enterprises.push(obj);
 
-}
+// function addEnterprise(enterprise) {
+//     const obj = new Object;
+//     obj.id = getMaxID(enterprises);
+//     obj.name = enterprise;
+//     obj.departments = [];
+//     enterprises.push(obj);
 
-addEnterprise("Предприятие 4");
-console.log(enterprises);
+// }
+
+// addEnterprise("Предприятие 4");
+// console.log(enterprises);
 
 
 //   Пример:
 //   addEnterprise("Название нового предприятия")
 
 //   4. Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
+
+function addDepartment(companyId, depName) {
+    const newDep = {
+        id: getMaxID(enterprises), //функция взята со строки 123-136
+        name: depName,
+        employees_count: 0
+    };
+
+    enterprises.forEach((el) => {
+        if (el.id === companyId) {
+            el.departments.push(newDep);
+            console.log(`the department added to company with ID ${companyId}`);
+        }
+    })
+
+}
+addDepartment(5, "bitches department");
+console.log(enterprises[1]);
 
 //   Пример:
 //   addDepartment(1, "Название нового отдела")
