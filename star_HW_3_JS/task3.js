@@ -118,8 +118,7 @@ getEnterpriseName(8);
 
 //   3. Написать функцию, которая будет добавлять предприятие. В качестве аргумента принимает название предприятия
 
-//Help function that ged ID to the new object.
-
+//Help function that ged ID to the new object:
 const getMaxID = (enterprise) => {
     let maxId = 0;
     enterprise.forEach((enterid) => {
@@ -154,6 +153,7 @@ const getMaxID = (enterprise) => {
 
 //   4. Написать функцию, которая будет добавлять отдел в предприятие. В качестве аргумента принимает id предприятия, в которое будет добавлен отдел и название отдела.
 
+/*
 function addDepartment(companyId, depName) {
     const newDep = {
         id: getMaxID(enterprises), //функция взята со строки 123-136
@@ -169,37 +169,96 @@ function addDepartment(companyId, depName) {
     })
 
 }
-addDepartment(5, "bitches department");
-console.log(enterprises[1]);
+addDepartment(11, "bitches department");
+console.log(enterprises);
+console.log(enterprises[3]);
+*/
 
 //   Пример:
 //   addDepartment(1, "Название нового отдела")
 
 //   5. Написать функцию для редактирования названия предприятия. Принимает в качестве аргумента id предприятия и новое имя предприятия.
 
+// const editEnterprise = function (enterprId, newEntrprName) {
+//     enterprises.find((el) => {
+//         if (el.id === enterprId) {
+//             el.name = newEntrprName;
+//         }
+//     })
+// }
+
+
 //   Пример:
-//   editEnterprise(1, "Новое название предприятия")
+// editEnterprise(1, "Новое название предприятия");
+// console.log(enterprises);
 
 
 //   6. Написать функцию для редактирования названия отдела. Принимает в качестве аргумента id отдела и новое имя отдела.
 
+// const editDepartment = function (depId, newDepName) {
+//     enterprises.forEach((element) => {
+//         element.departments.forEach((el) => {
+//             if (el.id === depId) {
+//                 el.name = newDepName;
+//                 console.log(element.departments); //проверка для отображения департаментов в консоли
+//             }
+//         })
+//     })
+// }
+
 //   Пример:
-//   editDepartment(7, "Новое название отдела")
+// editDepartment(7, "Новое название отдела")
 
 
 //   7. Написать функцию для удаления предприятия. В качестве аргумента принимает id предприятия.
 
-//   Пример:
-//   deleteEnterprise(1)
+// const deleteEnterprise = (enterpriseId) => {
+//     let newArr = enterprises.filter((el) => {
+//         return (el.id !== enterpriseId)
+//     })
+//     console.log(newArr);
+// }
+
+// //   Пример:
+// deleteEnterprise(9)
+
+
 
 
 //   8. Написать функцию для удаления отдела. В качестве аргумента принимает id отдела. Удалить отдел можно только, если в нем нет сотрудников.
 
+// const deleteDepartment = (departmentId) => {
+//     enterprises.forEach((elem) => {
+//         let indexOfDeptsId = elem.departments.findIndex(el => el.id === departmentId && el.employees_count === 0);
+//         if (indexOfDeptsId !== -1) {
+//             elem.departments.splice(indexOfDeptsId, 1);
+//         } //else throw new Error("wrong dep ID");
+//     })
+// }
+
 //   Пример:
-//   deleteDepartment(3)
+// deleteDepartment(10)
+// console.log(enterprises[2]);
 
 
 //   9. Написать функцию для переноса сотрудников между отделами одного предприятия. В качестве аргумента принимает два значения: id отдела, из которого будут переноситься сотрудники и id отдела, в который будут переноситься сотрудники).
 
+// const moveEmployees = (depIdFrom, depIdTo) => {
+//     enterprises.forEach((el) => {
+//         el.departments.forEach((depFrom) => {
+//             if (depFrom.id === depIdFrom) {
+//                 let count = depFrom.employees_count;
+//                 depFrom.employees_count = 0;
+//                 el.departments.forEach((depTo) => {
+//                     if (depTo.id === depIdTo) {
+//                         depTo.employees_count += count;
+//                     }
+//                 })
+//             }
+//         })
+//     })
+// }
+
 //   Пример:
-//   moveEmployees(2, 3)
+// moveEmployees(6, 8)
+// console.log(enterprises[1]);
